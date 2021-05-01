@@ -1,4 +1,4 @@
-export const apiKey = "88uiWmvvYAQrLAnhFJP13AHGBjCeUhgv";
+export const apiKey = "f7nPXtSThlDbLar0WOVNIsTzpqFtFNMj";
 
 export const endPoints = {
   geoposition: `https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${apiKey}&q=`,
