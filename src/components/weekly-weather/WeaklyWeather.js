@@ -46,7 +46,7 @@ const WeaklyWeather = (props) => {
   };
   return (
     <Fragment>
-      {loading ? (
+      {loading || weakWeather.length === 0 ? (
         <Spinner />
       ) : (
         <main class="main-container">
