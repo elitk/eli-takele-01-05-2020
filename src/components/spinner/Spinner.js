@@ -3,10 +3,10 @@ import React from "react";
 import "./Spinner.css";
 
 export default () => (
-  <div class="loader">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
+  <div className="loader">
+    <div className="dot"></div>
+    <div className="dot"></div>
+    <div className="dot"></div>
+    <div className="dot"></div>
   </div>
 );

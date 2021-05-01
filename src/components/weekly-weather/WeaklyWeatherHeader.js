@@ -15,9 +15,9 @@ const WeaklyWeatherHeader = (props) => {
   } = props;
   return (
     <>
-      <div class="location-and-date">
+      <div className="location-and-date">
         <div>
-          <h1 class="location-and-date__location">
+          <h1 className="location-and-date__location">
             {city?.EnglishName || city?.cityName || ""}
           </h1>
           {new Date(`${weakWeather[0].Date}`).toDateString()}
@@ -44,8 +44,8 @@ const WeaklyWeatherHeader = (props) => {
         )}
       </div>
 
-      <div class="current-temperature">
-        <div class="current-temperature__icon-container">
+      <div className="current-temperature">
+        <div className="current-temperature__icon-container">
           <img
             className="img-icon"
             src={`https://vortex.accuweather.com/adc2010/images/slate/icons/${
@@ -54,8 +54,8 @@ const WeaklyWeatherHeader = (props) => {
             alt="icon"
           />
         </div>
-        <div class="current-temperature__content-container">
-          <div class="current-temperature__value">
+        <div className="current-temperature__content-container">
+          <div className="current-temperature__value">
             {celsiusToggle
               ? getCelsiusTemperature(
                   weakWeather[0].Temperature[
@@ -68,7 +68,7 @@ const WeaklyWeatherHeader = (props) => {
                   ].Value
                 }°F`}
           </div>
-          <div class="current-temperature__summary">
+          <div className="current-temperature__summary">
             {weakWeather[0][nightToggle ? "Day" : "Night"].IconPhrase}
           </div>
         </div>

@@ -13,11 +13,11 @@ const WeakItem = (props) => {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
-    <div class="next-5-days__row">
-      <div class="next-5-days__date">
+    <div className="next-5-days__row">
+      <div className="next-5-days__date">
         {days[new Date(`${weakItem.Date}`).getDay()]}
 
-        <div class="next-5-days__label">
+        <div className="next-5-days__label">
           {new Date(weakItem.Date)
             .toLocaleDateString("he", {
               day: "2-digit",
@@ -27,21 +27,21 @@ const WeakItem = (props) => {
         </div>
       </div>
 
-      <div class="next-5-days__low">
+      <div className="next-5-days__low">
         {celsiusToggle
           ? getCelsiusTemperature(Minimum.Value)
           : `${Minimum.Value}°`}
-        <div class="next-5-days__label">Low</div>
+        <div className="next-5-days__label">Low</div>
       </div>
 
-      <div class="next-5-days__high">
+      <div className="next-5-days__high">
         {celsiusToggle
           ? getCelsiusTemperature(Maximum.Value)
           : `${Maximum.Value}°`}
-        <div class="next-5-days__label">High</div>
+        <div className="next-5-days__label">High</div>
       </div>
 
-      <div class="next-5-days__icon">
+      <div className="next-5-days__icon">
         <img
           src={`https://vortex.accuweather.com/adc2010/images/slate/icons/${
             weakItem[nightToggle ? "Day" : "Night"].Icon
@@ -50,16 +50,16 @@ const WeakItem = (props) => {
         />
       </div>
 
-      <div class="next-5-days__rain">
+      <div className="next-5-days__rain">
         {weakItem[nightToggle ? "Day" : "Night"].HasPrecipitation ? "✓" : "✗"}
-        <div class="next-5-days__label">Precipitation</div>
+        <div className="next-5-days__label">Precipitation</div>
       </div>
 
-      <div class="next-5-days__wind">
+      <div className="next-5-days__wind">
         {weakItem[nightToggle ? "Day" : "Night"].HasPrecipitation
           ? weakItem[nightToggle ? "Day" : "Night"].PrecipitationType
           : "✗"}
-        <div class="next-5-days__label">PrecipitationType</div>
+        <div className="next-5-days__label">PrecipitationType</div>
       </div>
     </div>
   );

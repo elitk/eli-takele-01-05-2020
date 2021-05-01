@@ -49,7 +49,7 @@ const WeaklyWeather = (props) => {
       {loading || weakWeather.length === 0 ? (
         <Spinner />
       ) : (
-        <main class="main-container">
+        <main className="main-container">
           <WeaklyWeatherHeader
             removeCityFromFavorite={removeCityFromFavorite}
             addCityToFavorite={addCityToFavorite}
@@ -60,9 +60,9 @@ const WeaklyWeather = (props) => {
             city={city}
           />
 
-          <div class="current-stats">
+          <div className="current-stats">
             <div>
-              <div class="current-stats__value">
+              <div className="current-stats__value">
                 {`${
                   celsiusToggle
                     ? getCelsiusTemperature(
@@ -72,8 +72,8 @@ const WeaklyWeather = (props) => {
                   ${weakWeather[0].Temperature.Maximum.Unit}`
                 }`}
               </div>
-              <div class="current-stats__label">High</div>
-              <div class="current-stats__value">
+              <div className="current-stats__label">High</div>
+              <div className="current-stats__value">
                 {`${
                   celsiusToggle
                     ? getCelsiusTemperature(
@@ -83,27 +83,27 @@ const WeaklyWeather = (props) => {
                   ${weakWeather[0].Temperature.Minimum.Unit}`
                 }`}
               </div>
-              <div class="current-stats__label">Low</div>
+              <div className="current-stats__label">Low</div>
             </div>
             <div>
-              <div class="current-stats__value">
+              <div className="current-stats__value">
                 {weakWeather[0][nightToggle ? "Day" : "Night"].HasPrecipitation
                   ? "✓"
                   : "✗"}
               </div>
-              <div class="current-stats__label">Precipitation</div>
-              <div class="current-stats__value">
+              <div className="current-stats__label">Precipitation</div>
+              <div className="current-stats__value">
                 {weakWeather[0][nightToggle ? "Day" : "Night"].HasPrecipitation
                   ? weakWeather[0][nightToggle ? "Day" : "Night"]
                       .PrecipitationType
                   : "✗"}
               </div>
-              <div class="current-stats__label">PrecipitationType</div>
+              <div className="current-stats__label">PrecipitationType</div>
             </div>
           </div>
-          <div class="next-5-days">
-            <h2 class="next-5-days__heading">Next 5 days</h2>
-            <div class="next-5-days__container">
+          <div className="next-5-days">
+            <h2 className="next-5-days__heading">Next 5 days</h2>
+            <div className="next-5-days__container">
               {weakWeather.length > 0 ? (
                 weakWeather.map((weakItem, index) => {
                   return (
