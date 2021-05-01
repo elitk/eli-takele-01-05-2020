@@ -7,7 +7,7 @@ import {
 } from "./types";
 import axios from "axios";
 import { apiKey, endPoints } from "../api/config";
-// axios.defaults.headers = { "Access-Control-Allow-Origin": "*" };
+
 export const getWeatherByLocation = (data) => async (dispatch) => {
   dispatch({
     type: FETCH_DATA,
