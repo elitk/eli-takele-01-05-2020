@@ -6,19 +6,26 @@ import WeaklyWeather from "../weekly-weather/WeaklyWeather";
 import "./Home.css";
 import Search from "../search/Search";
 import { getSuggestions } from "../../utils/getSuggestions";
+import { useCallback } from "react";
 
 const Home = (props) => {
   const { getFiveDaysWeather, getWeatherByLocation, location } = props;
   const [text, setText] = useState("");
   const [results, setResult] = useState([]);
-
+  const updateCityWeather = useCallback(
+    (data) => {
+      getFiveDaysWeather(data);
+      setText(data.cityName);
+      setResult([]);
+    },
+    [getFiveDaysWeather]
+  );
   useEffect(() => {
     if (location.state?.cityKey && location.state?.cityName) {
       updateCityWeather({
         cityKey: location.state?.cityKey,
         cityName: location.state?.cityName,
       });
-      location.state = undefined;
     } else if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         getWeatherByLocation(
@@ -26,17 +33,12 @@ const Home = (props) => {
         );
       });
     }
-  }, []);
+  }, [updateCityWeather, location.state, getWeatherByLocation]);
   const handleSearch = (value) => {
     getSuggestions(value).then((result) => {
       setResult(result.data);
     });
     setText(value);
-  };
-  const updateCityWeather = (data) => {
-    getFiveDaysWeather(data);
-    setText(data.cityName);
-    setResult([]);
   };
 
   return (
